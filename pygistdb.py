@@ -2,7 +2,7 @@
 # A Simple Github Gist Database Module"""
 import os
 import requests
-__version__ = 1.4
+__version__ = 1.0
 __name__ = "pygistdb"
 content = ""
 
