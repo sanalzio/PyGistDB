@@ -1,6 +1,12 @@
 # PyGistDB
 A primitive module enabling the use of your GitHub Gist as a database.
 
+# Updates
+- **I discovered a file writing issue in the module and fixed it**
+- Now the module allows data with newline(\n) characters.
+- Added index function to pylist class. [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#Get-variable-index)
+- Added lenFile function to pylist class. [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#Get-list-lenght)
+
 # Dictionary
 ## import example:
 ```py
@@ -302,4 +308,35 @@ new gist content:
 ```
 Hello
 I'm fine thank you
+```
+
+## Get list lenght
+gist content:
+```
+Hello
+123
+```
+code:
+```py
+print(db.lenFile())
+```
+output:
+```
+2
+```
+
+## Get variable index
+gist content:
+```
+Hello
+123
+```
+code:
+```py
+print(db.index("Hello"))
+print(db.index("Hello, World"))
+```
+output:
+```
+-1
 ```
