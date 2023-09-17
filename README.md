@@ -3,6 +3,7 @@ A primitive module enabling the use of your GitHub Gist as a database.
 
 # Updates
 - **I discovered a file writing issue in the module and fixed it**
+- **pygist class name changed to congist**
 - Now the module allows data with newline(\n) characters.
 - Added index function to pylist class. [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#Get-variable-index)
 - Added lenFile function to pylist class. [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#Get-list-lenght)
@@ -11,7 +12,7 @@ A primitive module enabling the use of your GitHub Gist as a database.
 ## import example:
 ```py
 import pygistdb
-gist = pygistdb.gistdb("gistfileid", "token", "filename")
+gist = pygistdb.congist("gistfileid", "token", "filename")
 db = pygistdb.pydb(gist)
 ```
 
@@ -180,7 +181,7 @@ output:
 ## import example:
 ```py
 import pygistdb
-gist = pygistdb.gistdb("gistfileid", "token", "filename")
+gist = pygistdb.congist("gistfileid", "token", "filename")
 db = pygistdb.pylist(gist)
 ```
 
