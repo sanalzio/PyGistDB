@@ -1,26 +1,22 @@
-<h1 style="color:#fe8a71;">PyGistDB</h1>
-
+# PyGistDB
 A primitive module enabling the use of your GitHub Gist as a database.
 
-<h1 style="color:#fe8a71;">Updates</h1>
-
-- <b style="color:#fdf498">I discovered a file writing issue in the module and fixed it</b>
-- <b style="color:#fdf498">pygist class name changed to congist</b>
+# Updates
+- **I discovered a file writing issue in the module and fixed it**
+- **pygist class name changed to congist**
 - Now the module allows data with newline(\n) characters.
 - Added index function to pylist class. [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#Get-variable-index)
 - Added lenFile function to pylist class. [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#Get-list-lenght)
 
-<h1 style="color:#fe8a71;">Dictionary</h1>
-<h1 style="color:#f6cd61;">import example:</h1>
-
+# Dictionary
+## import example:
 ```py
 import pygistdb
 gist = pygistdb.congist("gistfileid", "token", "filename")
 db = pygistdb.pydb(gist)
 ```
 
-<h1 style="color:#f6cd61;">add data</h1>
-
+## add data
 old file:
 ```
 var1:123
@@ -35,8 +31,7 @@ var1:123
 var2:456
 ```
 
-<h1 style="color:#f6cd61;">get data</h1>
-
+## get data
 file content:
 ```
 var1:123
@@ -59,8 +54,7 @@ Flase
 None
 ```
 
-<h1 style="color:#f6cd61;">remove data</h1>
-
+## remove data
 old file:
 ```
 var1:123
@@ -75,8 +69,7 @@ new file:
 var1:123
 ```
 
-<h1 style="color:#f6cd61;">clear file</h1>
-
+## clear file
 old file:
 ```
 var1:123
@@ -89,8 +82,7 @@ db.clear()
 new file:
 (empty)
 
-<h1 style="color:#f6cd61;">backup data</h1>
-
+## backup data
 gist content:
 ```
 var1:123
@@ -106,8 +98,7 @@ var1:123
 var2:456
 ```
 
-<h1 style="color:#f6cd61;">set data</h1>
-
+## set data
 old content:
 ```
 var1:123
@@ -123,8 +114,7 @@ var1:123
 var2:789
 ```
 
-<h1 style="color:#f6cd61;">Retrieve the data in </h1>
-dictionary format
+## Retrieve the data in dictionary format
 gist content:
 ```
 var1:123
@@ -140,8 +130,7 @@ output:
 {'var1':'123', 'var2':'789'}
 ```
 
-<h1 style="color:#f6cd61;">Dictionary to gist</h1>
-
+## Dictionary to gist
 code:
 ```py
 mydict = {'var':'Hello', 'varint':123}
@@ -153,8 +142,7 @@ var:Hello
 varint:123
 ```
 
-<h1 style="color:#f6cd61;">Control data</h1>
-
+## Control data
 gist content:
 ```
 var:Hello
@@ -170,8 +158,7 @@ True
 False
 ```
 
-<h1 style="color:#f6cd61;">Get datas</h1>
-
+## Get datas
 gist content:
 ```
 var:Hello
@@ -190,17 +177,15 @@ output:
 (("var", "Hello"), ("varint", "123"))
 ```
 
-<h1 style="color:#fe8a71;">List</h1>
-<h1 style="color:#f6cd61;">import example:</h1>
-
+# List
+## import example:
 ```py
 import pygistdb
 gist = pygistdb.congist("gistfileid", "token", "filename")
 db = pygistdb.pylist(gist)
 ```
 
-<h1 style="color:#f6cd61;">add data</h1>
-
+## add data
 old file:
 ```
 123
@@ -215,8 +200,7 @@ new file:
 456
 ```
 
-<h1 style="color:#f6cd61;">get data</h1>
-
+## get data
 file content:
 ```
 123
@@ -239,8 +223,7 @@ Flase
 None
 ```
 
-<h1 style="color:#f6cd61;">remove data</h1>
-
+## remove data
 old file:
 ```
 123
@@ -255,8 +238,7 @@ new file:
 123
 ```
 
-<h1 style="color:#f6cd61;">clear file</h1>
-
+## clear file
 old file:
 ```
 123
@@ -269,8 +251,7 @@ db.clear()
 new file:
 (empty)
 
-<h1 style="color:#f6cd61;">backup data</h1>
-
+## backup data
 gist content:
 ```
 123
@@ -286,8 +267,7 @@ backup1.db file content:
 456
 ```
 
-<h1 style="color:#f6cd61;">set data</h1>
-
+## set data
 old content:
 ```
 123
@@ -303,8 +283,7 @@ new content:
 789
 ```
 
-<h1 style="color:#f6cd61;">Retrieve the data in list </h1>
-
+## Retrieve the data in list format
 gist content:
 ```
 Hello
@@ -320,8 +299,7 @@ output:
 ["Hello", "123"]
 ```
 
-<h1 style="color:#f6cd61;">List to gist</h1>
-
+## List to gist
 code:
 ```py
 mylist = ["Hello", "I'm fine thank you"]
@@ -333,8 +311,7 @@ Hello
 I'm fine thank you
 ```
 
-<h1 style="color:#f6cd61;">Get list lenght</h1>
-
+## Get list lenght
 gist content:
 ```
 Hello
@@ -349,8 +326,7 @@ output:
 2
 ```
 
-<h1 style="color:#f6cd61;">Get variable index</h1>
-
+## Get variable index
 gist content:
 ```
 Hello
