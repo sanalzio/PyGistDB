@@ -1,19 +1,22 @@
-# PyGistDB 1.2
+# PyGistDB 1.3
 A primitive module enabling the use of your GitHub Gist as a database.
 
 # Updates
 - **I discovered a file writing issue in the module and fixed it**
 - **pygist class name changed to congist**
+- **Changed pygistdb.congist usage** [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#import-example:)
 - Now the module allows data with newline(\n) characters.
 - Added index function to pylist class. [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#Get-variable-index)
 - Added lenFile function to pylist class. [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#Get-list-lenght)
-- Litle write gist fix
+- Litle write gist fix.
+- Read fix.
+- Memory usage optimization.
 
 # Dictionary
 ## import example:
 ```py
 import pygistdb
-gist = pygistdb.congist("gistfileid", "token", "filename")
+gist = pygistdb.congist("gistfileid", "filename", "token")
 db = pygistdb.pydb(gist)
 ```
 
@@ -182,7 +185,7 @@ output:
 ## import example:
 ```py
 import pygistdb
-gist = pygistdb.congist("gistfileid", "token", "filename")
+gist = pygistdb.congist("gistfileid", "filename", "token")
 db = pygistdb.pylist(gist)
 ```
 
