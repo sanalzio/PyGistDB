@@ -3,14 +3,16 @@
 import os
 import requests
 
-__version__ = 1.2
+__version__ = 1.3
 __name__ = "pygistdb"
 
 
 class congist:
-    def __init__(self, gistid, token, filename):
+    def __init__(self, gistid: str, filename: str, token: str):
         response = requests.get(f"https://api.github.com/gists/{gistid}")
         self.gist_data = response.json()
+        if self.gist_data['message']:
+            raise Exception(self.gist_data['message'])
         self.token = token
         self.gistid = gistid
         self.filename = filename
@@ -26,16 +28,16 @@ class congist:
         )
 
     def ct(self):
-        response = requests.get(f"https://api.github.com/gists/{self.gistid}")
-        gist_data = response.json()
+        response2 = requests.get(f"https://api.github.com/gists/{self.gistid}")
+        gist_data = response2.json()
         content = gist_data["files"][self.filename]["content"]
         f = open("temp.pydb", "w", encoding="utf-8")
         f.write(content)
         f.close()
 
 
-def dt(g, f):
-    g.writegist(f.read())
+def dt(g, f, w=True):
+    if w==True: g.writegist(f.read())
     f.close()
     os.remove("temp.pydb")
 
@@ -67,7 +69,7 @@ class pydb:
                 il.append(i.split(":")[0])
             if not key in il:
                 f.seek(0)
-                dt(self.g, f)
+                dt(self.g, f, False)
                 return None
             else:
                 for i in l:
@@ -76,23 +78,23 @@ class pydb:
                         if len(a) == 2:
                             if a[1] == "{True}\n":
                                 f.seek(0)
-                                dt(self.g, f)
+                                dt(self.g, f, False)
                                 return True
                             elif a[1] == "{False}\n":
                                 f.seek(0)
-                                dt(self.g, f)
+                                dt(self.g, f, False)
                                 return False
                             elif a[1] == "{None}\n":
                                 f.seek(0)
-                                dt(self.g, f)
+                                dt(self.g, f, False)
                                 return None
                             else:
                                 f.seek(0)
-                                dt(self.g, f)
+                                dt(self.g, f, False)
                                 return a[1].replace("\n", "").replace("\\n", "\n")
                         elif len(a) > 2:
                             f.seek(0)
-                            dt(self.g, f)
+                            dt(self.g, f, False)
                             return ":".join(a[1:]).replace("\n", "")
 
     def keys(self):
@@ -103,7 +105,7 @@ class pydb:
             for i in lines:
                 keys.append(i.split(":")[0].replace("\n", "").replace("\\n", "\n"))
             f.seek(0)
-            dt(self.g, f)
+            dt(self.g, f, False)
             return tuple(keys)
 
     def values(self):
@@ -121,7 +123,7 @@ class pydb:
                         .replace("\\n", "\n")
                     )
             f.seek(0)
-            dt(self.g, f)
+            dt(self.g, f, False)
             return tuple(keys)
 
     def items(self):
@@ -147,7 +149,7 @@ class pydb:
                         ]
                     )
             f.seek(0)
-            dt(self.g, f)
+            dt(self.g, f, False)
             return tuple(items)
 
     def addData(self, key, value):
@@ -212,7 +214,7 @@ class pydb:
                 f.writelines(lines)
         with open(self.file, "r", encoding="utf-8") as f:
             f.seek(0)
-            dt(self.g, f)
+            dt(self.g, f, False)
 
     def setData(self, key, newValue):
         key = str(key)
@@ -253,7 +255,7 @@ class pydb:
                         if a[0] != "None":
                             dictionary[a[0]] = ":".join(a[1:]).replace("\n", "")
             f.seek(0)
-            dt(self.g, f)
+            dt(self.g, f, False)
             return dictionary
 
     def dictToFILE(self, dictionary: dict):
@@ -287,7 +289,7 @@ class pydb:
             for i in l:
                 if i.split(":")[0] == str(key):
                     f.seek(0)
-                    dt(self.g, f)
+                    dt(self.g, f, False)
                     return True
             return False
 
@@ -314,24 +316,24 @@ class pylist:
                 l.pop(l.index("NoneVariable\n"))
             if len(l) - 1 < index:
                 f.seek(0)
-                dt(self.g, f)
+                dt(self.g, f, False)
                 return None
             else:
                 if l[int(index)].replace("\n", "") == "{True}":
                     f.seek(0)
-                    dt(self.g, f)
+                    dt(self.g, f, False)
                     return True
                 elif l[int(index)].replace("\n", "") == "{False}":
                     f.seek(0)
-                    dt(self.g, f)
+                    dt(self.g, f, False)
                     return False
                 elif l[int(index)].replace("\n", "") == "{None}":
                     f.seek(0)
-                    dt(self.g, f)
+                    dt(self.g, f, False)
                     return None
                 else:
                     f.seek(0)
-                    dt(self.g, f)
+                    dt(self.g, f, False)
                     return l[int(index)].replace("\n", "").replace("\\n", "\n")
 
     def listFile(self):
@@ -354,7 +356,7 @@ class pylist:
                 a = i.replace("\n", "").replace("\\n", "\n")
                 op.append(a)
                 f.seek(0)
-            dt(self.g, f)
+            dt(self.g, f, False)
             return op
 
     def listToFILE(self, lst):
@@ -442,9 +444,9 @@ class pylist:
                 f.writelines(lines)
         with open(self.f, "r", encoding="utf-8") as f:
             f.seek(0)
-            dt(self.g, f)
+            dt(self.g, f, False)
 
-    def lenFile(self):
+    def len(self):
         self.g.ct()
         with open(self.f, "r", encoding="utf-8") as f:
             liste = f.readlines()
@@ -455,7 +457,7 @@ class pylist:
                 a = i.replace("\n", "")
                 op.append(a)
                 f.seek(0)
-            dt(self.g, f)
+            dt(self.g, f, False)
             return len(op)
 
     def index(self, value):
