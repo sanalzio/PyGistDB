@@ -7,6 +7,7 @@ A primitive module enabling the use of your GitHub Gist as a database.
 - Now the module allows data with newline(\n) characters.
 - Added index function to pylist class. [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#Get-variable-index)
 - Added lenFile function to pylist class. [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#Get-list-lenght)
+- Litle write gist fix
 
 # Dictionary
 ## import example:
