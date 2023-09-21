@@ -1,4 +1,4 @@
-# PyGistDB
+# PyGistDB 1.2
 A primitive module enabling the use of your GitHub Gist as a database.
 
 # Updates
