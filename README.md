@@ -4,7 +4,7 @@ A primitive module enabling the use of your GitHub Gist as a database.
 # Updates
 - **I discovered a file writing issue in the module and fixed it**
 - **pygist class name changed to congist**
-- **Changed pygistdb.congist usage** [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#import-example:)
+- **Changed pygistdb.congist usage** [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#import-example)
 - Now the module allows data with newline(\n) characters.
 - Added index function to pylist class. [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#Get-variable-index)
 - Added lenFile function to pylist class. [Go!](https://github.com/sanalzio/PyGistDB/blob/main/README.md#Get-list-lenght)
