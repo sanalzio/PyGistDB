@@ -12,6 +12,12 @@ A primitive module enabling the use of your GitHub Gist as a database.
 - Read fix.
 - Memory usage optimization.
 
+# Requirements
+- Python 3
+- requests
+  - `pip install requests`
+- os
+
 # Dictionary
 ## import example:
 ```py
