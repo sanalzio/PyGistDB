@@ -1,6 +1,8 @@
 # PyGistDB 1.3
 A primitive module enabling the use of your GitHub Gist as a database.
 
+![logo](image.svg)
+
 # Updates
 - **I discovered a file writing issue in the module and fixed it**
 - **pygist class name changed to congist**
